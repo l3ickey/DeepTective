@@ -1,0 +1,12 @@
+# dataset
+all_data.zip
+data/*
+data-scrapers/*
+__MACOSX/*
+
+# models
+all_models.zip
+model_combine.pt
+model_fileA.pt
+model_funcA.pt
+
