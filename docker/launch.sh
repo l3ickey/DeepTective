@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TAG='funabiki/deeptactive:1.11.0-cuda11.3-cudnn8-devel'
+TAG='funabiki/deeptactive:1.5.1-cuda10.1-cudnn7-devel'
 PROJECT_DIR="$(cd "$(dirname "${0}")/.." || exit; pwd)"
 
 # build

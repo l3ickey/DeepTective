@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-devel
 
 RUN python -m pip install pip==21.2.4 \
     && pip install -U --no-cache-dir \
