@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TAG='funabiki/deeptactive:1.5.1-cuda10.1-cudnn7-devel'
+TAG='funabiki/deeptactive:cuda10.1-cudnn7-devel-ubuntu18.04'
 PROJECT_DIR="$(cd "$(dirname "${0}")/.." || exit; pwd)"
 
 # build
 cd "$(dirname "${0}")/.." || exit
-DOCKER_BUILDKIT=1 docker build --progress=plain -t ${TAG} docker
+DOCKER_BUILDKIT=1 docker build --progress=plain -t ${TAG} nvidiacuda10.1
 
 # run
 docker run -it --rm \
