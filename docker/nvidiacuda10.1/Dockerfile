@@ -25,13 +25,13 @@ ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extr
 ENV CUDA_HOME=/usr/local/cuda
 
 # install python 3.8.1
-RUN apt install -y \
-    python3.8.1 \
-    python3-pip \
-    && apt clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm /usr/bin/python3 \
-    && ln -s /usr/bin/python3.8.1 /usr/bin/python3
+# RUN apt install -y \
+#     python3.8.1 \
+#     python3-pip \
+#     && apt clean \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && rm /usr/bin/python3 \
+#     && ln -s /usr/bin/python3.8.1 /usr/bin/python3
 
 # install package
 # RUN python3 -m pip install -U --no-cache-dir pip==20.3.4 \
