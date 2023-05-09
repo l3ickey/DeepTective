@@ -24,22 +24,60 @@ RUN apt update \
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 ENV CUDA_HOME=/usr/local/cuda
 
-# install python 3.8.1
-# RUN apt install -y \
-#     python3.8.1 \
-#     python3-pip \
-#     && apt clean \
-#     && rm -rf /var/lib/apt/lists/* \
-#     && rm /usr/bin/python3 \
-#     && ln -s /usr/bin/python3.8.1 /usr/bin/python3
+# build python 3.8.1
+RUN wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz \
+    && tar xvf Python-3.8.1.tgz \
+    && cd Python-3.8.1 \
+    && ./configure --enable-optimizations \
+    && make -j 8 \
+    && make altinstall \
+    && cd .. \
+    && rm -rf Python-3.8.1.tgz Python-3.8.1 \
+    && ln -sf /usr/local/bin/python3.8 /usr/local/bin/python3
 
 # install package
-# RUN python3 -m pip install -U --no-cache-dir pip==20.3.4 \
-#   && pip install -U --no-cache-dir \
-#     keras==1.1.2 \
-#     tensorflow-gpu==0.12.1 \
-#     pandas==1.1.5 \
-#     matplotlib==3.3.4 \
-#     scikit-learn==0.24.2 \
-#     h5py==3.1.0 \
-#     tables==3.7.0
+RUN python3 -m pip install -U --no-cache-dir pip==23.1.2 \
+    && pip install -U --no-cache-dir \
+    ase==3.19.2 \
+    certifi==2020.6.20 \
+    chardet==3.0.4 \
+    cycler==0.10.0 \
+    decorator==4.4.2 \
+    future==0.18.2 \
+    googledrivedownloader==0.4 \
+    h5py==2.10.0 \
+    idna==2.10 \
+    intervaltree==3.0.2 \
+    isodate==0.6.0 \
+    Jinja2==2.11.2 \
+    joblib==0.16.0 \
+    kiwisolver==1.2.0 \
+    llvmlite==0.33.0 \
+    lxml==4.5.2 \
+    MarkupSafe==1.1.1 \
+    matplotlib==3.3.0 \
+    networkx==2.4 \
+    numba==0.50.1 \
+    numpy==1.19.1 \
+    pandas==1.0.5 \
+    phply==1.2.5 \
+    Pillow==7.2.0 \
+    ply==3.11 \
+    pyparsing==2.4.7 \
+    python-dateutil==2.8.1 \
+    pytorch-nlp==0.5.0 \
+    pytz==2020.1 \
+    rdflib==5.0.0 \
+    requests==2.24.0 \
+    scikit-learn==0.23.1 \
+    scipy==1.5.2 \
+    six==1.15.0 \
+    sortedcontainers==2.2.2 \
+    threadpoolctl==2.1.0 \
+    torch==1.5.1 \
+    torch-geometric==1.6.0 \
+    torch-scatter==2.0.5 \
+    torch-sparse==0.6.6 \
+    tqdm==4.48.0 \
+    urllib3==1.25.10 \
+    wandb
